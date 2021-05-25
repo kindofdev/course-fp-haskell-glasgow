@@ -13,5 +13,10 @@
     <orderEntry type="library" name="base-4.14.1.0" level="project" />
     <orderEntry type="library" name="ghc-prim-0.6.1" level="project" />
     <orderEntry type="library" name="integer-gmp-1.0.3.0" level="project" />
+    <orderEntry type="library" name="containers-0.6.2.1" level="project" />
+    <orderEntry type="library" name="random-1.1" level="project" />
+    <orderEntry type="library" name="array-0.5.4.0" level="project" />
+    <orderEntry type="library" name="deepseq-1.4.4.0" level="project" />
+    <orderEntry type="library" name="time-1.9.3" level="project" />
   </component>
 </module>
