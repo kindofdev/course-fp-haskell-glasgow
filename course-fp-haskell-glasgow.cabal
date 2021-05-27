@@ -30,6 +30,7 @@ library
       Lib
       StarmanExtended
       GuessNumber
+      SortedTree
   other-modules:
       Paths_course_fp_haskell_glasgow
   hs-source-dirs:
