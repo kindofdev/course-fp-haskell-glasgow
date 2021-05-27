@@ -1,34 +1,17 @@
-module Speller(speller, speller') where
+module Speller(speller) where
 
------ speller using recursion -----  
-    
 speller :: [[Char]] -> [Char]
 speller [[]]   = ""
-speller words_ = intercalate' separator phrases
-  where separator = ", "
+speller words_ = joiner comma and_ phrases
+  where comma = ", "
+        and_ = "and "
         phrases = map letterPhrase words_
-  
+
 letterPhrase :: [Char] -> [Char]
 letterPhrase []           = []
 letterPhrase word @ (x:_) = [x] ++ " is for " ++ word  
-  
-intercalate' :: [a] -> [[a]] -> [a]
-intercalate' _ []       = []
-intercalate' _ [x]      = x  
-intercalate' sep (x:xs) = x ++ sep ++ (intercalate' sep xs)     
 
------ speller using fold -----
-
-speller' :: [[Char]] -> [Char]
-speller' [[]]   = ""
-speller' words_ = endDrop (length separator) phasesFolded
-  where separator = ", "
-        phrases = map letterPhrase words_
-        phasesFolded = foldr (foldFun separator) "" phrases
-
-endDrop :: Int -> [a] -> [a]
-endDrop n = (reverse . drop n . reverse)
-
-foldFun :: [Char] -> [Char] -> [Char] -> [Char]
-foldFun _ "" word          = word
-foldFun separator acc word = acc ++ separator ++ word
+joiner :: [a] -> [a] -> [[a]] -> [a]
+joiner _ _ []            = []
+joiner _ and_ [x]        = and_ ++ x  
+joiner comma and_ (x:xs) = x ++ comma ++ (joiner comma and_ xs)     
